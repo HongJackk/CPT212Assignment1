@@ -137,10 +137,11 @@ public class Ques1 {
         val.com += 1;
         val.add += 1;
         for (int j = 0; j < Array1.length; j++) { // use to trace the array row by row
-          //COUNTER: for loop (1 assign, 1 compare, 1 addition)
+          //COUNTER: for loop (1 assign, 1 compare, 1 function call, 1 addition)
           val.ass += 1;
           val.com += 1;
           val.add += 1;
+          val.func += 1; 
 
           //COUNTER: if condition (1 array lookup, 1 compare)
           val.arr += 1;
@@ -162,9 +163,10 @@ public class Ques1 {
             val.add += 1;
           }
         }
-        // COUNTER: end loop (1 assign, 1 compare)
+        // COUNTER: end loop (1 assign, 1 compare, 1 function call)
         val.ass += 1;
         val.com += 1;
+        val.func += 1;
       }
       // COUNTER: end loop (1 assign, 1 compare)
       val.ass += 1;
@@ -181,12 +183,22 @@ public class Ques1 {
   //method that use to trace the passing of the array and call the passingArray method to operate the passing
   public static void sortAscending(Integer[][] initialArray, int maxLoop, Counter val) {
     Integer[][] array1 = new Integer[initialArray.length][10]; //array1 initialise (2D array)
+    // COUNTER: 1 function call, 1 assign, length*10 array lookup
+    val.func += 1;
+    val.ass += 1;
+    val.arr += (initialArray.length*10);
     Integer[][] array2 = new Integer[initialArray.length][10]; //array2 initialise (2D array)
+    // COUNTER: 1 function call, 1 assign, length*10 array lookup
+    val.func += 1;
+    val.ass += 1;
+    val.arr += (initialArray.length*10);
+
     int currentLoop = 0; // use to trace the loop and for the printing number of pass
     int modulus = 10; // use to slice out the digit
     int division = 1; //use to slice out the digit
-    //COUNTER: 3 assign
+    //COUNTER: 3 assign, 2 function call
     val.ass += 3;
+    val.func += 2;
 
     while (maxLoop > 0) { //stop the passing when reached the max loop
       //COUNTER: while loop (1 compare)
@@ -212,6 +224,11 @@ public class Ques1 {
         val.mod += 1;
         val.com += 1;
         array2 = new Integer[initialArray.length][10]; //to clear the array 
+        // COUNTER: 1 function call, 1 assign, length*10 array lookup
+        val.func += 1;
+        val.ass += 1;
+        val.arr += (initialArray.length*10);
+
         passingArray(array1, array2, modulus, division, val); // call the passing method to operate the passing
         currentLoop++; // trace the current loop
         printPass(array2, currentLoop); //print the array after passing to showcase the step by step arrangement
@@ -222,6 +239,11 @@ public class Ques1 {
 
       } else { //from array2 pass to array1
         array1 = new Integer[initialArray.length][10]; //to clear the array
+        // COUNTER: 1 function call, 1 assign, length*10 array lookup
+        val.func += 1;
+        val.ass += 1;
+        val.arr += (initialArray.length*10);
+
         passingArray(array2, array1, modulus, division, val); // call the passing method to operate the passing
         currentLoop++; // trace the current loop
         printPass(array1, currentLoop); //print the array after passing to showcase the step by step arrangement
@@ -259,6 +281,10 @@ public class Ques1 {
     //counter.ass += 1;
   
     Integer[][] initialise = new Integer[inputNumber.length][10]; // initialise 2D array as a preparation to start the sorting
+    // COUNTER: 1 function call, 1 assign, length*10 array lookup
+    counter.func += 1;
+    counter.ass += 1;
+    counter.arr += (initialArray.length*10);
 
     for (int i = 0; i < inputNumber.length; i++) { //looping to convert the string to integer
       // COUNTER: for loop (1 assign, 1 compare, 1 addition)
@@ -281,10 +307,11 @@ public class Ques1 {
     counter.ass += 1;
 
     for (int i = 0; i < inputNumber.length; i++) { // find the largest value first to use for count the number of loop needed
-      // COUNTER: for loop (1 assign, 1 compare, 1 addition)
+      // COUNTER: for loop (1 assign, 1 compare, 1 addition, 1 function call)
       counter.ass += 1;
       counter.com += 1;
       counter.add += 1;
+      counter.func += 1;
 
       // COUNTER: if condition (1 compare, 1 array lookup)
       counter.com += 1;
@@ -296,9 +323,10 @@ public class Ques1 {
         counter.arr += 1;
       }
     }
-    // COUNTER: end loop (1 assign, 1 compare)
+    // COUNTER: end loop (1 assign, 1 compare, 1 function call)
     counter.ass += 1;
     counter.com += 1;
+    counter.func += 1;
 
     int maxDigit = 0; // to count how many loop we need for this algorithm
     // COUNTER: 1 assign
