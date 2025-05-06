@@ -284,7 +284,7 @@ public class Ques1 {
     // COUNTER: 1 function call, 1 assign, length*10 array lookup
     counter.func += 1;
     counter.ass += 1;
-    counter.arr += (initialArray.length*10);
+    counter.arr += (inputNumber.length*10);
 
     for (int i = 0; i < inputNumber.length; i++) { //looping to convert the string to integer
       // COUNTER: for loop (1 assign, 1 compare, 1 addition)
