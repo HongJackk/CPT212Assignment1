@@ -20,8 +20,9 @@ public class Ques2 {
     public static String slice(String s, int head, int tail, Counter val) {
 
         String sub = s.substring(head, tail);
-        //COUNTER: 1 assign
+        //COUNTER: 1 assign, 1 function call
         val.ass += 1;
+        val.func += 1;
 
         //COUNTER: 1 function return
         val.ret += 1;
@@ -33,8 +34,9 @@ public class Ques2 {
 
         // Convert String to character
         char c = s.charAt(0);
-        //COUNTER: 1 assign
+        //COUNTER: 1 assign, 1 function call
         val.ass += 1;
+        val.func += 1;
 
         // Convert to index
         int ascii = (int)c - 96;
@@ -160,10 +162,12 @@ public class Ques2 {
 
         // clear the array1 for the next pass
         for (int j = 0; j < array.length; j++) { 
-            //COUNTER: for loop (1 assign, 1 compare, 1 addition)
+            //COUNTER: for loop (1 assign, 1 compare, 1 addition, 1 function call)
             val.ass += 1;
             val.com += 1;
             val.add += 1;
+            val.func += 1;
+
             for (int i = 0; i < 27; i++) {
                 //COUNTER: for loop (1 assign, 1 compare, 1 addition)
                 val.ass += 1;
@@ -178,9 +182,10 @@ public class Ques2 {
             val.ass += 1;
             val.com += 1;
         }
-        //COUNTER: end loop (1 assign, 1 compare)
+        //COUNTER: end loop (1 assign, 1 compare, 1 function call)
         val.ass += 1;
         val.com += 1;
+        val.func += 1;
     }
 
     // To obtain the user input to sort it
@@ -252,10 +257,11 @@ public class Ques2 {
         // To traverse through the array
         // i is row, j is column
         for (int i = 0; i < s.length; i++) {
-            //COUNTER: for loop (1 assign, 1 compare, 1 addition)
+            //COUNTER: for loop (1 assign, 1 compare, 1 addition, 1 function call)
             val.ass += 1;
             val.com += 1;
             val.add += 1;
+            val.func += 1;
             for (int j = 0; j < 27; j++) {
                 //COUNTER: for loop (1 assign, 1 compare, 1 addition)
                 val.ass += 1;
@@ -267,9 +273,10 @@ public class Ques2 {
                 val.com += 1;
                 if (j == 0) {
                     length = s[i][j].length();
-                    //COUNTER: 1 assign, 1 array lookup
+                    //COUNTER: 1 assign, 1 array lookup, 1 function call
                     val.ass += 1;
                     val.arr += 1;
+                    val.func += 1;
 
                     //COUNTER: if condition (1 compare)
                     val.com += 1;
@@ -284,9 +291,10 @@ public class Ques2 {
             val.ass += 1;
             val.com += 1;
         }
-        //COUNTER: end loop (1 assign, 1 compare)
+        //COUNTER: end loop (1 assign, 1 compare, 1 function call)
         val.ass += 1;
         val.com += 1;
+        val.func += 1;
 
         // To return the maximum length of the string
         //COUNTER: 1 function return
@@ -299,6 +307,10 @@ public class Ques2 {
 
         // To pass the array to another array to sort it
         String[][] array2 = new String[array1.length][27];
+        // COUNTER: 1 function call, 1 assign, length*27 array lookup
+        val.func += 1;
+        val.ass += 1;
+        val.arr += (array1.length*27);
 
         // To store the sliced string
         String sub;
@@ -327,10 +339,11 @@ public class Ques2 {
 
                 // Trace the array row by row
                 for (int i = 0; i < array1.length; i++) {
-                    //COUNTER: for loop (1 assign, 1 compare, 1 addition)
+                    //COUNTER: for loop (1 assign, 1 compare, 1 addition, 1 function call)
                     val.ass += 1;
                     val.com += 1;
                     val.add += 1;
+                    val.func += 1;
 
                     // Only do opetarion if the element inside the bucket is not null
                     //COUNTER: if condition (1 array lookup, 1 compare)
@@ -340,9 +353,10 @@ public class Ques2 {
 
                         // To count the number of charcter in the string
                         int count = array1[i][n].length();
-                        //COUNTER: 1 assign, 1 array lookup
+                        //COUNTER: 1 assign, 1 array lookup, 1 function call
                         val.ass += 1;
                         val.arr += 1;
+                        val.func += 1;
 
                         // Enter if the string count(length) is lower than the counter(max length)
                         //COUNTER: if condition (1 minus, 1 compare)
@@ -408,9 +422,10 @@ public class Ques2 {
                         continue;
                     }
                 }
-                //COUNTER: end loop (1 assign, 1 compare)
+                //COUNTER: end loop (1 assign, 1 compare, 1 function call)
                 val.ass += 1;
                 val.com += 1;
+                val.func += 1;
             }
             //COUNTER: end loop (1 assign, 1 compare)
             val.ass += 1;
@@ -439,16 +454,40 @@ public class Ques2 {
     }
 
     // Method to pass the array to the final to know the final result
-    public static String[][] getFinal (String[][] s, int length) {
+    public static String[][] getFinal (String[][] s, int length, Counter val) {
 
         // Pass the array to a final array to print out the final result
         String Final[][] = new String[length][27];
-        for (int j = 0; j < length; j++) {
-            for (int k = 0; k < 27; k++) {
-                Final[j][k] = s[j][k];
-            }
-        }
+        // COUNTER: 1 assign, length*27 array lookup
+        val.ass += 1;
+        val.arr += (length*27);
 
+        for (int j = 0; j < length; j++) {
+            //COUNTER: for loop (1 assign, 1 compare, 1 addition)
+            val.ass += 1;
+            val.com += 1;
+            val.add += 1;
+
+            for (int k = 0; k < 27; k++) {
+                //COUNTER: for loop (1 assign, 1 compare, 1 addition)
+                val.ass += 1;
+                val.com += 1;
+                val.add += 1;
+
+                Final[j][k] = s[j][k];
+                //COUNTER: 1 assign, 2 array lookup
+                val.ass += 1;
+                val.arr += 2;
+            }
+            //COUNTER: end loop (1 assign, 1 compare)
+            val.ass += 1;
+            val.com += 1;
+        }
+        //COUNTER: end loop (1 assign, 1 compare)
+        val.ass += 1;
+        val.com += 1;
+
+        val.ret += 1;
         return Final;
     }
 
@@ -462,8 +501,20 @@ public class Ques2 {
         /*counter.ass += 1;
         counter.func += 1;*/
         String array1[][] = new String[initialize.length][27];
+        // COUNTER: 1 function call, 1 assign, length*27 array lookup
+        counter.func += 1;
+        counter.ass += 1;
+        counter.arr += (initialize.length*27);
         String array2[][] = new String[initialize.length][27];
+        // COUNTER: 1 function call, 1 assign, length*27 array lookup
+        counter.func += 1;
+        counter.ass += 1;
+        counter.arr += (initialize.length*27);
         String Final[][] = new String[initialize.length][27];
+        // COUNTER: 1 function call, 1 assign, length*27 array lookup
+        counter.func += 1;
+        counter.ass += 1;
+        counter.arr += (initialize.length*27);
 
         // Variable to store the max length of the elements in the array
         int max;
@@ -512,7 +563,10 @@ public class Ques2 {
                         counter.ass += 1;
 
                         // To transfer the array to the final array to track the final result
-                        Final = getFinal(array1, initialize.length);
+                        Final = getFinal(array1, initialize.length, counter);
+                        //COUNTER: 2 function call, 1 assign
+                        counter.func += 2;
+                        counter.ass += 1;
                     } 
                     
                     // If the counter (passing round) is odd
@@ -524,7 +578,10 @@ public class Ques2 {
                         counter.ass += 1;
 
                         // To transfer the array to the final array to track the final result
-                        Final = getFinal(array2, initialize.length);
+                        Final = getFinal(array2, initialize.length, counter);
+                        //COUNTER: 2 function call, 1 assign
+                        counter.func += 2;
+                        counter.ass += 1;
                     }
                 }
 
@@ -544,7 +601,10 @@ public class Ques2 {
                         counter.ass += 1;
 
                         // To transfer the array to the final array to track the final result
-                        Final = getFinal(array1, initialize.length);
+                        Final = getFinal(array1, initialize.length, counter);
+                        //COUNTER: 2 function call, 1 assign
+                        counter.func += 2;
+                        counter.ass += 1;
                     } 
                     
                     // // If the counter (passing round) is even
@@ -557,7 +617,10 @@ public class Ques2 {
                         counter.ass += 1;
 
                         // To transfer the array to the final array to track the final result
-                        Final = getFinal(array2, initialize.length);
+                        Final = getFinal(array2, initialize.length, counter);
+                        //COUNTER: 2 function call, 1 assign
+                        counter.func += 2;
+                        counter.ass += 1;
                     }
                 }
 
