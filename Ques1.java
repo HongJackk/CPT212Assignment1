@@ -292,7 +292,7 @@ public class Ques1 {
       counter.com += 1;
       counter.add += 1;*/
 
-      initialise[0][i] = Integer.parseInt(inputNumber[i]); //convert the string to integer
+      initialise[i][0] = Integer.parseInt(inputNumber[i]); //convert the string to integer
       // COUNTER: 1 array lookup, 1 assign
       /*counter.arr += 1;
       counter.ass += 1;*/
@@ -316,8 +316,8 @@ public class Ques1 {
       // COUNTER: if condition (1 compare, 1 array lookup)
       counter.com += 1;
       counter.arr += 1;
-      if (max < initialise[0][i]) { // to find the largest value
-        max = initialise[0][i];
+      if (max < initialise[i][0]) { // to find the largest value
+        max = initialise[i][0];
         // COUNTER: 1 assign, 1 array lookup
         counter.ass += 1;
         counter.arr += 1;
