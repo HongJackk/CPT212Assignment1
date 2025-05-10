@@ -3,15 +3,16 @@
 import java.util.Scanner; //import Scanner class
 
 class Counter{ // Class for counter
-  int add = 0;
-  int mul = 0;
-  int div = 0;
-  int mod = 0;
-  int ass = 0;
-  int func = 0;
-  int arr = 0;
-  int com = 0;
+  int add = 0; //addtion
+  int mul = 0; //multiplication
+  int div = 0; //division
+  int mod = 0; //modulus
+  int ass = 0; //assignment
+  int func = 0; //function call
+  int arr = 0; //array lookup
+  int com = 0; //compare
 }
+
 //class of algorithm
 public class Ques1 {
 
@@ -208,9 +209,9 @@ public class Ques1 {
       val.add += 1;
       val.ass += 1;
 
+      // COUNTER: if condition (1 compare)
+      val.com += 1;
       if (currentLoop == 0) { // if it is the first loop, pass the element in the initialise array into first array
-        // COUNTER: if condition (1 compare)
-        val.com += 1;
         passingArray(initialArray, array1, modulus, division, val); // call the passing method to operate the passing
         currentLoop++; // trace the current loop
         printPass(array1, currentLoop); //print the array after passing to showcase the step by step arrangement
@@ -223,6 +224,7 @@ public class Ques1 {
         // COUNTER: else if condition (1 modulus, 1 compare)
         val.mod += 1;
         val.com += 1;
+
         array2 = new Integer[initialArray.length][10]; //to clear the array 
         // COUNTER: 1 function call, 1 assign, length*10 array lookup
         val.func += 1;
@@ -238,6 +240,10 @@ public class Ques1 {
         val.ass += 1;
 
       } else { //from array2 pass to array1
+        // COUNTER: else if condition (1 modulus, 1 compare)
+        val.mod += 1;
+        val.com += 1;
+
         array1 = new Integer[initialArray.length][10]; //to clear the array
         // COUNTER: 1 function call, 1 assign, length*10 array lookup
         val.func += 1;
@@ -261,10 +267,10 @@ public class Ques1 {
     // COUNTER: end loop (1 compare)
     val.com += 1;
 
+    // COUNTER: if condition (1 modulus, 1 assign)
+    val.mod += 1;
+    val.ass += 1;
     if (currentLoop % 2 == 0) { //to see whether the final answer is in which array
-      // COUNTER: if condition (1 modulus, 1 assign)
-      val.mod += 1;
-      val.ass += 1;
       printFinal(array2); // print array2 if it is in array2
     } else {
       printFinal(array1); // print array1 if it is in array2

@@ -3,14 +3,14 @@
 import java.util.Scanner;  // Import the Scanner class
 
 class Counter{ // Class for counter
-  int add = 0;
-  int min = 0;
-  int mod = 0;
-  int ass = 0;
-  int func = 0;
-  int ret = 0;
-  int arr = 0;
-  int com = 0;
+  int add = 0; //addition
+  int min = 0; //minus
+  int mod = 0; //modulus
+  int ass = 0; //assignment
+  int func = 0; //function call
+  int ret = 0; //function return
+  int arr = 0; //array lookup
+  int com = 0; //compare
 }
 
 // Class of the algorithm
@@ -625,10 +625,10 @@ public class Ques2 {
                 }
 
             // Enter if it is the first pass (last character)
-            //COUNTER: if condition (1 compare, 1 minus)
-            counter.com += 1;
-            counter.min += 1;
             } else if (i == max - 1) {
+                //COUNTER: if condition (1 compare, 1 minus)
+                counter.com += 1;
+                counter.min += 1;
 
                 // To pass the initialize array to another array to sort it
                 array1 = Pass(i, initialize, max, counter);
