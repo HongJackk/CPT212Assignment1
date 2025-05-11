@@ -202,22 +202,47 @@ public class Ques2 {
 
         // convert to lower case
         input = input.toLowerCase(); 
+        //COUNTER: 1 assign
+        //val.ass += 1;
         System.out.println();
 
         // To split the string into an array, user input will be seperated by spacing
         String[] inputed = input.split(" ");
+        //COUNTER: 1 assign
+        //val.ass += 1;
         String[][] array = new String[inputed.length][27];
 
         // Convert input into 2D-array
         for (int i = 0; i < inputed.length; i++) {
+            //COUNTER: for loop (1 assign, 1 compare, 1 addition)
+            /*val.ass += 1;
+            val.com += 1;
+            val.add += 1;*/
             for (int j = 0; j < 27; j++) {
+                //COUNTER: for loop (1 assign, 1 compare, 1 addition)
+                /*val.ass += 1;
+                val.com += 1;
+                val.add += 1;*/
 
+                //COUNTER: if condition (1 compare)
+                //val.com += 1;
                 if (j == 0) {
                     array[i][j] = inputed[i];
+                    //COUNTER: 2 array lookup, 1 assign
+                    /*val.arr += 2;
+                    val.ass += 1;*/
                 }
             }
+            //COUNTER: end loop (1 assign, 1 compare)
+            /*val.ass += 1;
+            val.com += 1;*/
         }
+        //COUNTER: end loop (1 assign, 1 compare)
+        /*val.ass += 1;
+        val.com += 1;*/
         
+        //COUNTER: 1 function return
+        //val.ret += 1;
         return array;
     }
 
@@ -472,6 +497,9 @@ public class Ques2 {
         Counter counter = new Counter();
         // Initialize the needed arrays (2D-array)
         String initialize[][] = input(counter);
+        //COUNTER: 1 function call and 1 assign
+        /*counter.ass += 1;
+        counter.func += 1;*/
         String array1[][] = new String[initialize.length][27];
         // COUNTER: 1 function call, 1 assign, length*27 array lookup
         counter.func += 1;

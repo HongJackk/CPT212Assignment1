@@ -283,8 +283,6 @@ public class Ques1 {
     System.out.print("Please enter the number (separate by comma): "); //user friendly message
     String input = sc.nextLine(); // to receive input from user
     String[] inputNumber = input.split(","); //separate the input with the ',' into an array, as we prompt user to use ',' to separate the number
-    //COUNTER: 1 assign
-    //counter.ass += 1;
   
     Integer[][] initialise = new Integer[inputNumber.length][10]; // initialise 2D array as a preparation to start the sorting
     // COUNTER: 1 function call, 1 assign, length*10 array lookup
@@ -293,19 +291,9 @@ public class Ques1 {
     counter.arr += (inputNumber.length*10);
 
     for (int i = 0; i < inputNumber.length; i++) { //looping to convert the string to integer
-      // COUNTER: for loop (1 assign, 1 compare, 1 addition)
-      /*counter.ass += 1;
-      counter.com += 1;
-      counter.add += 1;*/
 
       initialise[i][0] = Integer.parseInt(inputNumber[i]); //convert the string to integer
-      // COUNTER: 1 array lookup, 1 assign
-      /*counter.arr += 1;
-      counter.ass += 1;*/
     }
-    // COUNTER: end loop (1 assign, 1 compare)
-    /*counter.ass += 1;
-    counter.com += 1;*/
 
     int max = initialise[0][0]; //assign the first element of the array as the largest input
     // COUNTER: 1 array lookup, 1 assign
